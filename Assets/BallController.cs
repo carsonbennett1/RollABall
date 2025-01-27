@@ -3,6 +3,7 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     public Rigidbody sphereRigidbody;
+    public float ballSpeed = 2f;
     void Start()
     {
         
@@ -19,5 +20,7 @@ public class BallController : MonoBehaviour
 
         Debug.Log("Resultant Vector: " + inputVector);
 
+        Vector3 inputXYZPlane = new Vector3(inputVector.x, 0, inputVector.y);
+        sphereRigidbody.AddForce(inputXYZPlane * ballSpeed);
     }
 }
